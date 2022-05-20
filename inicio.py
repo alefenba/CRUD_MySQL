@@ -37,4 +37,14 @@ def insereValor(nome):
         print(f'Ocorreu um erro {e}')
 
 
+def retornaValor():
+    try:
+        with con.cursor() as cursor:
+            cursor.execute(f"SELECT * FROM teste")
+            resultado = cursor.fetchall()
+            print(resultado)
+    except Exception as e:
+        print(f'Ocorreu um erro {e}')
+
+
 con.close()
