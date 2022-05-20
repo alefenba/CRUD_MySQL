@@ -47,4 +47,13 @@ def retornaValor():
         print(f'Ocorreu um erro {e}')
 
 
+def updataTabela():
+    try:
+        with con.cursor() as cursor:
+            cursor.execute("UPDATE `teste` SET nome = 'Alana' WHERE nome = 'Agata'")
+        print("Nome atualizado com sucesso")
+    except Exception as e:
+        print(f'Ocorreu um erro {e}')
+
+updataTabela()
 con.close()
