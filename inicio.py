@@ -26,5 +26,15 @@ def removeTabela(nomeTabela):
         print("Tabela excluida com sucesso")
     except Exception as e:
         print(f'Ocorreu um erro {e}')
-removeTabela("teste2")
+
+
+def insereTabela(nome):
+    try:
+        with con.cursor() as cursor:
+            cursor.execute(f"INSERT INTO teste VALUES('{nome}')")
+        print("Valor inserido com sucesso!")
+    except Exception as e:
+        print(f'Ocorreu um erro {e}')
+
+insereTabela("Alana")
 con.close()
