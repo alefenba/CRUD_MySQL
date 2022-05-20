@@ -55,5 +55,14 @@ def updataTabela():
     except Exception as e:
         print(f'Ocorreu um erro {e}')
 
-updataTabela()
+def deleteNome():
+    try:
+        with con.cursor() as cursor:
+            cursor.execute("DELETE FROM teste WHERE nome='Agata'")
+        print("Remoção bem sucedida!")
+    except Exception as e:
+        print(f'Ocorreu um erro {e}')
+
+deleteNome()
+
 con.close()
