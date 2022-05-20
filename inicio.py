@@ -28,7 +28,7 @@ def removeTabela(nomeTabela):
         print(f'Ocorreu um erro {e}')
 
 
-def insereTabela(nome):
+def insereValor(nome):
     try:
         with con.cursor() as cursor:
             cursor.execute(f"INSERT INTO teste VALUES('{nome}')")
@@ -36,5 +36,5 @@ def insereTabela(nome):
     except Exception as e:
         print(f'Ocorreu um erro {e}')
 
-insereTabela("Alana")
+
 con.close()
