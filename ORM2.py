@@ -16,8 +16,6 @@ def RetornaSession():
     return  Session()
 
 session = RetornaSession()
-x = session.query(Pessoa).filter(Pessoa.id == 3).all()
-#Atualizando inforamção dentro do BD
-x[0].senha = '123456'
-
+#Excluindo valores no BD
+x = session.query(Pessoa).filter(Pessoa.id == 6).delete()
 session.commit()
