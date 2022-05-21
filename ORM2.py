@@ -25,8 +25,10 @@ x = Pessoa(nome = 'Alefe',
 y = Pessoa(usuario='Alana182',
            senha='1234546')
 
-#efetuando todas mudanças no BD
+#selecionando todas mudanças no BD
 session.add_all([x,y])
+#Limpando alterações da Session
+session.rollback()
 #Efetuando as alterações do BD
 session.commit()
 
