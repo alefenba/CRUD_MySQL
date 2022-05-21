@@ -16,7 +16,8 @@ def RetornaSession():
     return  Session()
 
 session = RetornaSession()
-x = session.query(Pessoa).filter(or_(Pessoa.nome == 'Alefe', Pessoa.usuario == 'Alana182')).all()
+x = session.query(Pessoa).filter(Pessoa.id == 3).all()
+#Atualizando inforamção dentro do BD
+x[0].senha = '123456'
 
-for i in x:
-    print(i.id)
+session.commit()
