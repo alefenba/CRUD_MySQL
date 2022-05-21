@@ -1,7 +1,7 @@
 from decouple import config
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import or_
 from ORM import Pessoa
 
 def RetornaSession():
@@ -16,8 +16,7 @@ def RetornaSession():
     return  Session()
 
 session = RetornaSession()
+x = session.query(Pessoa).filter(or_(Pessoa.nome == 'Alefe', Pessoa.usuario == 'Alana182')).all()
 
-x = session.query(Pessoa).all()
-x = session.query(Pessoa).filter_by(usuario='Alefe182',nome='Alefe').all()
 for i in x:
-    print (i.id)
+    print(i.id)
