@@ -17,18 +17,7 @@ def RetornaSession():
 
 session = RetornaSession()
 
-#Instanciando a classe para adcionar valores ao banco de dados
-x = Pessoa(nome = 'Alefe',
-           usuario='Alefe182',
-           senha='1234546')
-
-y = Pessoa(usuario='Alana182',
-           senha='1234546')
-
-#selecionando todas mudanças no BD
-session.add_all([x,y])
-#Limpando alterações da Session
-session.rollback()
-#Efetuando as alterações do BD
-session.commit()
-
+x = session.query(Pessoa).all()
+x = session.query(Pessoa).filter_by(usuario='Alefe182',nome='Alefe').all()
+for i in x:
+    print (i.id)
